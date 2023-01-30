@@ -139,6 +139,7 @@ if [ ! -f "$alphafold_script" ]; then
     exit 1
 fi
 
+export LD_LIBRARY_PATH=$CONDA_PREFIX/lib # not sure this is needed
 # Export ENVIRONMENT variables and set CUDA devices for use
 # CUDA GPU control
 export CUDA_VISIBLE_DEVICES=-1
