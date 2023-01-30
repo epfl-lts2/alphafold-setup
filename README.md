@@ -12,7 +12,14 @@ This is adapted from [this repo](https://github.com/kalininalab/alphafold_non_do
 
 The environment is almost ready, *but* a file needs to be patched. Assuming your base conda directory is in `~/miniconda3`, run the following:
 - `cd ~/miniconda3/envs/alphafold/lib/python3.8/site-packages`
+- `wget https://raw.githubusercontent.com/epfl-lts2/alphafold-setup/master/openmm.patch`
+- `patch -p0 < openmm.patch`
 
 
 # Download files
-
+- `mdkir /mnt/scratch.../workdir` (adapt to your needs)
+- `cd /mnt/scratch.../workdir`
+- `wget https://github.com/deepmind/alphafold/archive/refs/tags/v2.3.1.tar.gz && tar -xzf v2.3.1.tar.gz`
+- `cd alphafold-2.3.1`
+- `wget -q -P ./alphafold/common/ https://git.scicore.unibas.ch/schwede/openstructure/-/raw/7102c63615b64735c4941278d92b554ec94415f8/modules/mol/alg/src/stereo_chemical_props.txt`
+- 
