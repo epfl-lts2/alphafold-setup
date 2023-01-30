@@ -19,7 +19,23 @@ The environment is almost ready, *but* a file needs to be patched. Assuming your
 # Download files
 - `mdkir /mnt/scratch.../workdir` (adapt to your needs)
 - `cd /mnt/scratch.../workdir`
-- `wget https://github.com/deepmind/alphafold/archive/refs/tags/v2.3.1.tar.gz && tar -xzf v2.3.1.tar.gz`
+- `wget -q https://github.com/deepmind/alphafold/archive/refs/tags/v2.3.1.tar.gz && tar -xzf v2.3.1.tar.gz`
 - `cd alphafold-2.3.1`
 - `wget -q -P ./alphafold/common/ https://git.scicore.unibas.ch/schwede/openstructure/-/raw/7102c63615b64735c4941278d92b554ec94415f8/modules/mol/alg/src/stereo_chemical_props.txt`
-- 
+- `wget -q https://raw.githubusercontent.com/epfl-lts2/alphafold-setup/master/run_alphafold.sh`
+- `chmod +x run_alphafold.sh`
+
+# Run alphafold
+- Create a fasta query, e.g.
+```
+>pdb|3h7p|A
+MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQLEDGRTLSDYNIQRESTLHLVLRLRGG
+```
+- Run alphafold (the necessary databases have been already downladed and processed in `/mnt/scratch/alphafold`):
+
+`./run_alphafold.sh -d /mnt/scratch/alphafold -o test2 -c reduced_dbs -f [fasta input] -t 2020-05-14 -a [gpu id] -n [number of cpus]`
+
+e.g.:
+
+`./run_alphafold.sh -d /mnt/scratch/alphafold -o test2 -c reduced_dbs -f ./ubi.fasta -t 2020-05-14 -a 1 -n 16`
+
