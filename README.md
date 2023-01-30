@@ -8,7 +8,7 @@ This is adapted from [this repo](https://github.com/kalininalab/alphafold_non_do
 - `conda install -y -c nvidia cuda-nvcc==11.3.58` (this is needed as jax requires a functional `ptxas` binary)
 - `conda install -y -c bioconda hmmer==3.3.2 hhsuite==3.3.0 kalign2==2.04`
 - `pip install -r requirements.txt`
-- `pip install jaxlib==0.3.25+cuda11.cudnn82 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html`
+- `pip install jaxlib==0.1.69+cuda111 -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html`
 
 The environment is almost ready, *but* a file needs to be patched. Assuming your base conda directory is in `~/miniconda3`, run the following:
 - `cd ~/miniconda3/envs/alphafold/lib/python3.8/site-packages`
@@ -19,8 +19,8 @@ The environment is almost ready, *but* a file needs to be patched. Assuming your
 # Download files
 - `mdkir /mnt/scratch.../workdir` (adapt to your needs)
 - `cd /mnt/scratch.../workdir`
-- `wget -q https://github.com/deepmind/alphafold/archive/refs/tags/v2.3.1.tar.gz && tar -xzf v2.3.1.tar.gz`
-- `cd alphafold-2.3.1`
+- `wget -q https://github.com/deepmind/alphafold/archive/refs/tags/v2.2.3.tar.gz && tar -xzf v2.2.3.tar.gz`
+- `cd alphafold-2.2.3`
 - `wget -q -P ./alphafold/common/ https://git.scicore.unibas.ch/schwede/openstructure/-/raw/7102c63615b64735c4941278d92b554ec94415f8/modules/mol/alg/src/stereo_chemical_props.txt`
 - `wget -q https://raw.githubusercontent.com/epfl-lts2/alphafold-setup/master/run_alphafold.sh`
 - `chmod +x run_alphafold.sh`
