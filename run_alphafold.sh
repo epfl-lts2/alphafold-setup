@@ -162,6 +162,9 @@ export TF_FORCE_UNIFIED_MEMORY='1'
 # JAX control
 export XLA_PYTHON_CLIENT_MEM_FRACTION='4.0'
 
+# LD_LIBRARY_PATH set
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:$CONDA_PREFIX/lib
+
 # Path and user config (change me if required)
 uniref90_database_path="$data_dir/uniref90/uniref90.fasta"
 uniprot_database_path="$data_dir/uniprot/uniprot.fasta"
